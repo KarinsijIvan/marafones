@@ -14,5 +14,3 @@ def sql_insert(con, entities):
     con.commit()
 
 con = sql_connection()
-entities = ('Alex777cool', '123')
-sql_insert(con, entities)
