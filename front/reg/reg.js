@@ -9,9 +9,6 @@ function check_form(el){
     if (name=="" || pass=="" || repass == "")
         answer = "заполните все поля"
 
-    else if (name.length < 3)
-        answer = "Длинна имени должно быть не менее 3"
-
     else if (pass.length < 3)
         answer = "Длинна пороля должно быть не менее 3"
 
