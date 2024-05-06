@@ -1,12 +1,14 @@
 function check_form(el){
+    var login = el.login.value
     var name = el.name.value
+    var surname = el.surname.value
     var pass = el.pass.value
     var repass = el.repass.value
 
     var answer = "Вы успешно зарегистрировались"
     document.getElementById("answer").style.color = "red"
 
-    if (name=="" || pass=="" || repass == "")
+    if (login == "" || name=="" || surname == "" || pass=="" || repass == "")
         answer = "заполните все поля"
 
     else if (pass.length < 3)
