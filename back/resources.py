@@ -2,17 +2,22 @@ from flask_restful import Resource
 from flask import request
 from models import Data, db
 
+
 class Registration(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         users_data = Data.query.all()
 
-        data_list = [{'id': user_data.id, 'login': user_data.login,
-                     "name": user_data.name, "surname": user_data.surname, 
-                     "password": user_data.password} for user_data in users_data]
+        data_list = [
+            {'id': user_data.id, 'login': user_data.login,
+                "name": user_data.name, "surname": user_data.surname,
+                "password": user_data.password} for user_data in users_data
+        ]
 
         return {'data': data_list}
 
-    def post(self):
+    @staticmethod
+    def post():
         users_data = Data.query.all()
         add_data = request.get_json()
         
@@ -46,6 +51,8 @@ class Registration(Resource):
 
         db.session.commit()
         
-        return {"message": "data added", "data": {"id": new_data.id, "login": new_data.login,
-                                                "name": name, "surname": surname,
-                                                "password": new_data.password}}
+        return {"message": "data added", "data": {
+            "id": new_data.id, "login": new_data.login,
+            "name": name, "surname": surname,
+            "password": new_data.password}
+            }

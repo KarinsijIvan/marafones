@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class Data(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String, nullable=False)
